@@ -38,7 +38,8 @@ pipeline{
             steps{
                 script
                 {
-                    statiCodeAnalysis()
+                    def credentialsId = 'sonarid'
+                    statiCodeAnalysis(credentialsId)
                     }
             }
         }
