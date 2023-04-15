@@ -5,12 +5,13 @@ pipeline{
         choice(name: 'action', choices: 'create\ndelete', description: 'Choose the action')
     }
     stages{
-        when {
+        
+        stage("Git Checkout"){
+            when {
             expession{
                 param.action === "create"
             }
         }
-        stage("Git Checkout"){
             steps{
                 gitCheckout(
                     branch: "development",
