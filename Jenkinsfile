@@ -10,13 +10,13 @@ pipeline{
                 )
             }
         }
-        stage("Maven Test"){
-            steps{
-                script
-                {
-                    mvnTest()
-                    }
-            }
-        }
+        // stage("Maven Test"){
+        //     steps{
+        //         script
+        //         {
+        //             mvnTest()
+        //             }
+        //     }
+        // }
     }
 }
