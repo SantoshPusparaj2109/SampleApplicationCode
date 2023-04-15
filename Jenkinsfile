@@ -43,5 +43,25 @@ pipeline{
                     }
             }
         }
+        stage("Quality Gate Status"){
+            when { expression { params.action == "create" } }
+            steps{
+                script
+                {
+                    def credentialsId = 'sonarid'
+                    QualityGateStatus(credentialsId)
+                    }
+            }
+        }
+
+        stage("Maven Build"){
+            when { expression { params.action == "create" } }
+            steps{
+                script
+                {
+                    mvnBuild()
+                    }
+            }
+        }
     }
 }
