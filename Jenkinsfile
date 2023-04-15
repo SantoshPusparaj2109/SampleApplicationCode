@@ -7,11 +7,7 @@ pipeline{
     stages{
         
         stage("Git Checkout"){
-            when {
-            expession{
-                param.action === "create"
-            }
-        }
+            when { expression{param.action == "create"} }
             steps{
                 gitCheckout(
                     branch: "development",
@@ -20,11 +16,7 @@ pipeline{
             }
         }
         stage("Maven Test"){
-            when {
-            expession{
-                param.action === "create"
-            }
-        }
+            when { expession{param.action == "create"} }
             steps{
                 script
                 {
@@ -33,11 +25,7 @@ pipeline{
             }
         }
         stage("Maven Integration Test"){
-            when {
-            expession{
-                param.action === "create"
-            }
-        }
+            when { expession{param.action == "create"} }
             steps{
                 script
                 {
@@ -46,11 +34,7 @@ pipeline{
             }
         }
         stage("Static Code Analysis: SonarQube"){
-            when {
-            expession{
-                param.action === "create"
-            }
-        }
+            when { expession{param.action == "create"} }
             steps{
                 script
                 {
