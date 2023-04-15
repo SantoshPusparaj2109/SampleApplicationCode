@@ -38,7 +38,7 @@ pipeline{
             steps{
                 script
                 {
-                    staticCodeAnalysis()
+                    statiCodeAnalysis()
                     }
             }
         }
