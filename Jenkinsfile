@@ -3,9 +3,10 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-                script{
-                    git branch: 'development', url: 'https://github.com/SantoshPusparaj2109/SampleApplicationCode.git'
-                }
+                gitCheckout(
+                    branch: "development",
+                    url: "https://github.com/SantoshPusparaj2109/SampleApplicationCode.git"
+                )
             }
         }
     }
